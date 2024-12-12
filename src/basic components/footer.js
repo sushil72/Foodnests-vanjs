@@ -1,4 +1,6 @@
 const { div, section, ul, li, h1, h2, p, span } = van.tags;
+
+// Importing stores values
 import { isDark } from "../store/darkTheme.js";
 
 export const footer = () => {
@@ -8,7 +10,7 @@ export const footer = () => {
       {
         class: `${
           isDark.val ? "bg-black text-white" : "bg-white text-black"
-        } mt-5 flex flex-col gap-5`,
+        } pt-5 flex flex-col gap-5`,
       },
       div(
         { class: "flex items-center justify-around" },

@@ -1,4 +1,7 @@
-const { div, p } = van.tags;
+const { div, p, img } = van.tags;
+
+// Importing stores values
+import { isDark } from "../store/darkTheme.js";
 
 export const navbar = () => {
   const navOptions = [
@@ -65,17 +68,17 @@ export const navbar = () => {
   ];
 
   return () => div(
-    { class: "relative tracking-wider font-semibold text-sm text-gray-500 bg-gray-100 flex gap-10 items-center px-10 py-1 border border-gray-300" },
-    div(
-      { class: "absolute left-5 bg-white shadow-md rounded-full" },
+    { class: `relative ${isDark.val ? "bg-black text-gray-500" : "bg-gray-100 text-gray-500"} tracking-wider font-semibold text-sm flex gap-10 items-center px-10 py-1 border border-gray-300` },
+    img(
+      { src: "../../public/images/Left-Arrow.png", alt: "left arrow", class: "absolute left-5 bg-white h-7 shadow-md rounded-full" },
       "left arrow"
     ),
     navOptions.map(item => p(
         item?.option
       )
     ),
-    div(
-      { class: "absolute right-5 bg-white shadow-md rounded-full" },
+    img(
+      { src: "../../public/images/Right-Arrow.png", alt: "left arrow", class: "absolute right-5 bg-white h-7 shadow-md rounded-full" },
       "right arrow"
     ),
   )

@@ -3,12 +3,15 @@ const { div } = van.tags;
 // router.js
 import { routes } from "./routes.js";
 
+// Importing local files
+import { NotFoundPage } from "../pages/Page 404/notFound.js"
+
 const appState = van.state(""); // Holds the current route
 
 function Router() {
   // Renders the component for the current route
   return div(() =>
-    routes[appState.val] ? routes[appState.val]() : div("Page Not Found")
+    routes[appState.val] ? routes[appState.val]() : NotFoundPage()
   );
 }
 
